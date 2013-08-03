@@ -74,7 +74,8 @@ class Session implements SaveHandlerInterface {
 	}
 
 	public function __destruct() {
-		SessionManager::writeClose ();
+		//1.2x -> 2.x SessionManager更改为对象，不存在静态方法
+		//SessionManager::writeClose ();
 		$this->mem = null;
 	}
 
